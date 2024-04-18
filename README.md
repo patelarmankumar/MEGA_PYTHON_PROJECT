@@ -13,3 +13,8 @@ Normal Text
 learning Python. Apllying various concepts.
 
 
+```
+pip install python-dotenv
+```
+
+

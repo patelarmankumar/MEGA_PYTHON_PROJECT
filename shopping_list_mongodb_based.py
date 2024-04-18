@@ -1,5 +1,8 @@
 from pymongo import MongoClient
 
+from dotenv import load_dotenv
+import os
+
 def load_shopping_list(collection):
     """
     Load the shopping list from a MongoDB collection.
@@ -126,8 +129,11 @@ def main():
     """
     Main function to interact with the shopping list application.
     """
+    load_dotenv()  # This will automatically load the .env file and parse the DB_URI
+    mongo_db_uri = os.getenv('DB_URI')
+    # Now you can use mongo_db_uri to connect to your MongoDB database
 
-    connection_string = "mongodb+srv://patelarmankumar:any1CkgH2WVylwkY@cluster0.60ccvi7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection_string = mongo_db_uri
 
     # Connect to the MongoDB Atlas cluster
     client = MongoClient(connection_string)
